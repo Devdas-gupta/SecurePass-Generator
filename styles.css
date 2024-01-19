@@ -1,0 +1,148 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1e272e, #212121); /* Metallic and dark background */
+}
+
+.container {
+    text-align: center;
+    color: #ecf0f1; /* Text color */
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Box shadow for better visibility */
+    background: linear-gradient(45deg, #2c3e50, #3498db, #27ae60, #e74c3c, #8e44ad); /* Neon color glowing effect */
+    background-size: 300% 300%;
+    animation: glowing 5s linear infinite; /* Glowing animation */
+    font-family: 'Quicksand', 'Helvetica', sans-serif; /* Multiple fonts */
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+h1 {
+    font-family: 'Pacifico', cursive; /* Header font */
+}
+
+.password-container {
+    margin-top: 20px;
+    position: relative;
+}
+
+input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #3498db; /* Text color */
+    background-color: #ecf0f1; /* Input background color */
+    border: 1px solid #3498db; /* Border color */
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #2980b9; /* Border color on focus */
+}
+
+.generate-btn,
+.copy-btn {
+    padding: 10px;
+    font-size: 1.2em;
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.generate-btn {
+    background-color: #2ecc71; /* Generate button color */
+}
+
+.generate-btn:hover {
+    background-color: #104124; /* Generate button hover color */
+}
+
+.copy-btn {
+    background-color: #e74c3c; /* Copy button color */
+}
+
+.copy-btn:hover {
+    background-color: #491b16; /* Copy button hover color */
+}
+
+.options {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.label-container,
+.checkbox-container {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    color: #ecf0f1; /* Text color */
+    font-family: 'Lato', 'Helvetica', sans-serif; /* Label font */
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container input {
+    margin-right: 5px;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3498db; /* Border color */
+    border-radius: 50%; /* Rounded corners for the checkbox */
+    background-color: #ecf0f1; /* Background color */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkbox-container input:checked {
+    background-color: #570f3e; /* Checkbox color when checked */
+}
+
+.checkbox-container label {
+    font-size: 1em;
+    color: #ecf0f1; /* Text color */
+    font-family: 'Lato', 'Helvetica', sans-serif; /* Label font */
+}
+
+/* Cracking time style */
+.cracking-time {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #ecf0f1;
+    background-color: #34495e; /* Background color for the cracking time box */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+    .cracking-time {
+        font-size: 1em; /* Adjust font size for smaller screens */
+    }
+}
