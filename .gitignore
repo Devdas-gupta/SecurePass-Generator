@@ -1,0 +1,45 @@
+# Node.js
+node_modules/
+
+# Package files
+package-lock.json
+yarn.lock
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Compiled files
+*.log
+*.min.js
+*.min.css
+
+# Dependency directories
+/bower_components/
+
+# Environment variables
+.env
+
+# IDE files
+.vscode/
+.idea/
+
+# Build output
+/build/
+/dist/
+/out/
+
+# Ignore build artifacts and production files
+/build/
+/dist/
+/out/
+
+# Ignore any compiled JavaScript
+*.js
+
+# Ignore minified CSS
+*.css.map
+*.min.css
+
+# Ignore generated HTML file (if applicable)
+*.html
