@@ -142,6 +142,10 @@ label {
 }
 
 @media (max-width: 600px) {
+    .generate-btn,
+    .copy-btn {
+        font-size: 1em; /* Adjust font size for smaller screens */
+    }
     .cracking-time {
         font-size: 1em; /* Adjust font size for smaller screens */
     }

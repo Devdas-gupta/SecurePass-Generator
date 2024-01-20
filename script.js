@@ -56,3 +56,30 @@ function getColor(score) {
     if (score === 3) return '#2ecc71';
     if (score === 4) return '#27ae60';
 }
+
+function copyToClipboard() {
+    const passwordElement = document.getElementById('password');
+    const password = passwordElement.value;
+
+    if (!password) {
+        alert('Generate a password first.');
+        return;
+    }
+
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(password).then(function() {
+            alert('Password copied to clipboard!');
+        }).catch(function(err) {
+            console.error('Unable to copy to clipboard.', err);
+        });
+    } else {
+        // Fallback for browsers that don't support Clipboard API
+        const tempInput = document.createElement('input');
+        tempInput.value = password;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        alert('Password copied to clipboard!');
+    }
+}
