@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
     <title>Password Generator</title>
 </head>
+
 <body oncontextmenu="return false;">
 
     <div class="container">
@@ -20,6 +22,19 @@
             <button class="generate-btn" onclick="generatePassword()">Generate Password</button>
             <button class="copy-btn" onclick="copyToClipboard()">Copy to Clipboard</button>
         </div>
+
+        <div class="password-container">
+            <div class="password-input-container">
+                <input type="password" id="user-password" placeholder="Enter your password">
+                <img src="Image/eye-close.png" alt="Show/Hide" onclick="togglePasswordVisibility()" id="password-close">
+                <img src="Image/eye-open.png" alt="Show/Hide" onclick="togglePasswordVisibility()" id="password-open">
+            </div>
+            <button class="check-btn" onclick="checkPasswordStrength()">Check Password Strength</button>
+            <p id="user-cracking-time" class="cracking-time"></p>
+        </div>
+
+
+
         <div class="options">
             <div class="label-container">
                 <label for="length">Password Length</label>
@@ -46,4 +61,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

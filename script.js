@@ -38,7 +38,7 @@ function generatePassword() {
     const remainingTime = new Date(remainingSeconds * 1000).toISOString().substr(11, 8);
 
     const crackingTimeElement = document.getElementById('cracking-time');
-    
+
     // Display password strength feedback
     crackingTimeElement.textContent = `Estimated Cracking Time: ${years} years and ${remainingTime} Hours`;
 
@@ -51,7 +51,7 @@ function generatePassword() {
 function getColor(score) {
     // Customize colors based on your preference and the score
     if (score === 0) return '#e74c3c';
-    if (score === 1) return '#e67e22'; 
+    if (score === 1) return '#e67e22';
     if (score === 2) return '#f39c12';
     if (score === 3) return '#2ecc71';
     if (score === 4) return '#27ae60';
@@ -67,9 +67,9 @@ function copyToClipboard() {
     }
 
     if (navigator.clipboard) {
-        navigator.clipboard.writeText(password).then(function() {
+        navigator.clipboard.writeText(password).then(function () {
             alert('Password copied to clipboard!');
-        }).catch(function(err) {
+        }).catch(function (err) {
             console.error('Unable to copy to clipboard.', err);
         });
     } else {
@@ -81,5 +81,47 @@ function copyToClipboard() {
         document.execCommand('copy');
         document.body.removeChild(tempInput);
         alert('Password copied to clipboard!');
+    }
+}
+
+function checkPasswordStrength() {
+    const userPassword = document.getElementById('user-password').value;
+
+    if (!userPassword) {
+        alert('Please enter a password.');
+        return;
+    }
+
+    // Estimate password strength with zxcvbn for user-entered password
+    const result = zxcvbn(userPassword);
+
+    const seconds = result.crack_times_seconds.offline_slow_hashing_1e4_per_second;
+    const years = Math.floor(seconds / (60 * 60 * 24 * 365));
+    const remainingSeconds = seconds % (60 * 60 * 24 * 365);
+    const remainingTime = new Date(remainingSeconds * 1000).toISOString().substr(11, 8);
+
+    const userCrackingTimeElement = document.getElementById('user-cracking-time');
+
+    // Display password strength feedback for user-entered password
+    userCrackingTimeElement.textContent = `Estimated Cracking Time: ${years} years and ${remainingTime} Hours`;
+
+    // Update the background color based on password strength for user-entered password
+    const userStrengthMeter = document.getElementById('user-strength-meter');
+    userStrengthMeter.style.width = `${(result.score + 1) * 20}%`;
+    userStrengthMeter.style.backgroundColor = getColor(result.score);
+}
+function togglePasswordVisibility() {
+    const passwordInput = document.getElementById('user-password');
+    const passwordOpen = document.getElementById('password-open');
+    const passwordClose = document.getElementById('password-close');
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        passwordOpen.style.display = 'inline';
+        passwordClose.style.display = 'none';
+    } else {
+        passwordInput.type = 'password';
+        passwordOpen.style.display = 'none';
+        passwordClose.style.display = 'inline';
     }
 }
