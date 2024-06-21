@@ -42,7 +42,7 @@ This project is licensed under the [MIT License](LICENSE).
 ## Contact
 - Developer: Devdas Kumar
 - Email: Kumardevdas88@gmail.com
-- LinkedIn: https://www.linkedin.com/in/devdas-kumar-889055234/
+- LinkedIn: (https://www.linkedin.com/in/devdas-cybersecurity/)
 
 ## Acknowledgments
 - Password strength estimation provided by zxcvbn.
